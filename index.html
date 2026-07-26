@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiger Protection Project</title>
+    <!-- Modern ve Premium Bir Yazı Tipi Yüklüyoruz -->
+    <link href="https://googleapis.com" rel="stylesheet">
     <link rel="stylesheet" href="ders.css">
 </head>
 <body>
-    <img class="hero-image" src="http://127.0.0.1:5500/sponchia-tigers-591359_1920.jpg" alt="Tigers in their natural habitat">
+    <img class="hero-image" src="http://127.0.0" alt="Tigers in their natural habitat">
     <h1 class="hero">Tiger Protection Website</h1>
     <p>You can find donations for tigers.</p>
     
+    <!-- Alt kısımdaki butonlar ve JavaScript bağlantıları tamamen korundu -->
     <button class="hero-button"> How We Protect </button>
     <button class="nore-button"> Click to support </button>
     <button class="nedo-button"> Who we are </button>
@@ -40,17 +43,13 @@
 
         // 👑 "WHO WE ARE" BUTTON FUNCTION
         nedoBtn.addEventListener('click', () => {
-            // Automatically close the other panel if it is currently open
             protectBox.classList.remove('show');
-            // Toggle the visibility of this panel
             aboutBox.classList.toggle('show');
         });
 
         // 👑 "HOW WE PROTECT" BUTTON FUNCTION
         protectBtn.addEventListener('click', () => {
-            // Automatically close the other panel if it is currently open
             aboutBox.classList.remove('show');
-            // Toggle the visibility of this panel
             protectBox.classList.toggle('show');
         });
 
@@ -71,18 +70,15 @@
         
         document.body.appendChild(donationPanel);
 
-        // Toggle donation panel visibility on support button click
         supportBtn.addEventListener('click', (e) => {
             e.stopPropagation(); 
             donationPanel.classList.toggle('show'); 
         });
 
-        // Prevent panel closure when clicking inside the panel area
         donationPanel.addEventListener('click', (e) => {
             e.stopPropagation();
         });
 
-        // Close donation panel automatically when clicking anywhere else on the page
         document.addEventListener('click', () => {
             donationPanel.classList.remove('show');
         });
@@ -91,7 +87,6 @@
         const plusBtn = document.getElementById('plusBtn');
         const donationDisplay = document.getElementById('donationDisplay');
 
-        // PLUS (+) BUTTON FUNCTION WITH MAX LIMIT
         plusBtn.addEventListener('click', () => {
             if (currentDonation < 20) {
                 currentDonation += 1;
@@ -101,7 +96,6 @@
             }
         });
 
-        // MINUS (-) BUTTON FUNCTION WITH MIN LIMIT
         minusBtn.addEventListener('click', () => {
             if (currentDonation > 0) {
                 currentDonation -= 1;
