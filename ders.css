@@ -1,10 +1,16 @@
 /* ==========================================================================
-   1. GENEL SAYFA DÜZENİ & ARKA PLAN
+   1. GENEL SAYFA DÜZENİ & MODERN ARKA PLAN
    ========================================================================== */
-body {
-    background-color: #0b0b0c; /* Derin ve kaliteli antrasit-siyah tonu */
+* {
     margin: 0;
-    padding: 0 0 140px 0;    
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0d0d0f; /* Tam siyah yerine lüks, derin antrasit tonu */
+    margin: 0;
+    padding: 40px 20px 160px 20px; /* Alttan butonların çakışmaması için pay bırakıldı */   
     display: flex;           
     flex-direction: column;  
     align-items: center;     
@@ -12,94 +18,96 @@ body {
     min-height: 100vh;       
     overflow-y: auto;        
     position: relative;      
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
 
 /* ==========================================================================
-   2. TİPOGRAFİ & BAŞLIKLAR (HERO)
+   2. TİPOGRAFİ & BAŞLIKLAR (HERO TEXT)
    ========================================================================== */
 h1.hero {
     order: 1;                
-    font-size: 3.2rem;
-    font-weight: 900;
-    margin: 40px 0 10px 0;   
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 35px 0 10px 0;   
     text-transform: uppercase;
     letter-spacing: 3px;
-    background: linear-gradient(135deg, #ffffff 30%, #a5a5a8 100%);
+    /* Başlığa modern beyaz-gri degrade (renk geçişi) veriyoruz */
+    background: linear-gradient(135deg, #ffffff 40%, #a1a1a5 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    text-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 /* Slogan Paragrafı */
 body > p {
     order: 2;                
-    color: #ff9f1c; /* Gözü yormayan, premium kaplan turuncusu */
-    font-size: 1.15rem;
+    color: #ff9f1c; /* Parlak sarı yerine premium kaplan turuncusu */
+    font-size: 1.1rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    margin: 0 0 30px 0;
+    letter-spacing: 1.5px;
+    margin: 0 0 35px 0;
     text-transform: uppercase;
 }
 
 /* ==========================================================================
-   3. ANA GÖRSEL (HERO IMAGE)
+   3. KAPLAN GÖRSELİ (HERO IMAGE)
    ========================================================================== */
 img.hero-image {
     order: 3;                
-    max-width: 750px;          
+    max-width: 780px;          
     width: 90%;
     height: auto;            
     display: block;          
     margin: 10px auto;       
-    border-radius: 20px; /* Modern, yumuşatılmış köşeler */
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
-                0 0 0 1px rgba(255, 255, 255, 0.05); /* İnce şık dış çizgi */
+    border-radius: 24px; /* Oval, şık ve modern köşeler */
+    /* Görsele derinlik katan harika gölge efektleri ve çok ince bir dış çerçeve çizgisi */
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.65), 
+                0 0 0 1px rgba(255, 255, 255, 0.05); 
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 img.hero-image:hover {
-    transform: scale(1.015);
+    transform: scale(1.015); /* Üzerine gelindiğinde hafifçe büyüyen premium efekt */
 }
 
 /* ==========================================================================
-   4. SABİTLENMİŞ ALT BUTONLAR (ALT PANEL)
+   4. SABİTLENMİŞ ALT BUTONLAR (ALT PANEL SİMETRİSİ)
    ========================================================================== */
 
-/* Ortak Buton Özellikleri */
+/* Tüm butonların ortak modern özellikleri */
 .hero-button, .nore-button, .nedo-button {
     font-family: inherit;
     font-size: 0.95rem;
     font-weight: 700;
     padding: 14px 32px;
-    border-radius: 50px; /* Tam oval, modern hap tasarım */
+    border-radius: 50px; /* Tam oval, modern hap şeklinde buton tasarımı */
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: fixed; 
-    bottom: 25px;            
+    bottom: 25px; /* Tüm butonlar alt çizgide tamamen eşitlendi */           
     z-index: 10;
 }
 
-/* NASIL KORUYORUZ BUTONU (Sol Alt) */
+/* HOW WE PROTECT BUTONU (Sol Alt) */
 .hero-button {
-    background-color: #1c1c1e;
+    background-color: #1a1a1e;
     color: #ffffff;
-    border: 1px solid #3a3a3c;
+    border: 1px solid #333336;
     left: 25px;             
-    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .hero-button:hover {
-    background-color: #2c2c2e;
+    background-color: #252529;
     border-color: #ff9f1c;
     transform: translateY(-4px);
 }
 
-/* DESTEK OL BUTONU (Sağ Alt - En Dikkat Çeken) */
+/* CLICK TO SUPPORT BUTONU (Sağ Alt - Dikkat Çeken Ana Buton) */
 .nore-button {
     background-color: #ff9f1c;
-    color: #000000; /* Yüksek okunurluk için siyah yazı */
+    color: #000000; /* Yüksek okunurluk için metin siyah yapıldı */
     border: none;
     right: 25px;
     box-shadow: 0 6px 24px rgba(255, 159, 28, 0.3);
@@ -111,20 +119,21 @@ img.hero-image:hover {
     box-shadow: 0 8px 30px rgba(255, 159, 28, 0.5);
 }
 
-/* BİZ KİMİZ BUTONU (Orta Alt) */
+/* WHO WE ARE BUTONU (Orta Alt) */
 .nedo-button {
     left: 50%;
     transform: translateX(-50%); 
-    background-color: #1c1c1e;
+    background-color: #1a1a1e;
     color: #ffffff;
-    border: 1px solid #3a3a3c;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333336;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .nedo-button:hover {
-    background-color: #2c2c2e;
+    background-color: #252529;
     border-color: #ff9f1c;
-    transform: translateX(-50%) translateY(-4px); /* Merkez hizasını bozmadan yükselir */
+    /* Hover esnasında ekranın ortasındaki hizasının kayması engellendi */
+    transform: translateX(-50%) translateY(-4px); 
 }
 
 /* ==========================================================================
@@ -132,10 +141,10 @@ img.hero-image:hover {
    ========================================================================== */
 .signature {
     position: fixed;         
-    bottom: 90px; /* Butonların üzerine taşınarak çakışma önlendi */
+    bottom: 95px; /* Butonların üzerine taşınarak çakışmalar tamamen engellendi */
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.3) !important; 
+    color: rgba(255, 255, 255, 0.25) !important; 
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 2px;
@@ -155,40 +164,41 @@ img.hero-image:hover {
     transform: translate(-50%, -50%); 
     width: 90%;
     max-width: 480px;
-    background-color: #121214;
-    border-radius: 16px;
+    background-color: #131316;
+    border-radius: 20px;
     padding: 35px;
     color: #ffffff;
     z-index: 100;            
-    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8),
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85),
                 0 0 0 1px rgba(255, 255, 255, 0.05);
+    /* Pop-up açılırken aşağıdan yukarıya doğru şık bir akış efekti kazanır */
     animation: modalFadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
-/* Pop-up Başlıkları */
+/* Pop-up İçindeki Başlıklar */
 .about-section h2, .protect-section h2 { 
     color: #ff9f1c; 
     margin-top: 0; 
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 800;
     letter-spacing: 0.5px;
 }
 
-/* Pop-up İçerik Yazıları */
+/* Pop-up İçindeki Açıklama Metinleri */
 .about-section p, .protect-section p {
-    color: #b3b3b3;
-    font-size: 1rem;
+    color: #b5b5ba;
+    font-size: 0.98rem;
     line-height: 1.6;
     margin: 16px 0 0 0;
-    text-transform: none; /* Global p kuralının bunu bozmasını engeller */
+    text-transform: none; 
 }
 
-/* JavaScript Sınıf Tetikleyicisi */
+/* JavaScript Tarafından Eklenen Görünürlük Sınıfı */
 .about-section.show, .protect-section.show {
     display: block;           
 }
 
-/* İnce Renkli Çizgi Detayları */
+/* Kutuların Üst Kısmına Şık Turuncu Çizgi Detayı */
 .about-section { border-top: 4px solid #ff9f1c; }
 .protect-section { border-top: 4px solid #ff9f1c; }
 
@@ -198,12 +208,12 @@ img.hero-image:hover {
 .donation-panel {
     display: none;            
     position: fixed;
-    bottom: 90px; /* Destek ol butonunun tam üstünde açılır */
+    bottom: 95px; /* Sağ alttaki Click to Support butonunun hemen üzerinde açılır */
     right: 25px;              
-    background-color: #121214;
-    border: 1px solid rgba(255, 159, 28, 0.3);
-    border-radius: 100px; /* Kapsül tasarımı */
-    padding: 8px 12px;
+    background-color: #131316;
+    border: 1px solid rgba(255, 159, 28, 0.4);
+    border-radius: 100px; /* Tam kapsül/oval tasarım */
+    padding: 8px 14px;
     align-items: center;
     gap: 12px;                
     z-index: 15;
@@ -217,13 +227,13 @@ img.hero-image:hover {
 
 #donationDisplay {
     color: #ffffff;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 800;
     min-width: 55px;          
     text-align: center;
 }
 
-/* Sayaç Yuvarlak Butonları */
+/* Sayaç Artı-Eksi Butonları */
 .calc-btn {
     background-color: #ff9f1c;
     color: #000000;
@@ -246,12 +256,12 @@ img.hero-image:hover {
 }
 
 /* ==========================================================================
-   8. ANİMASYONLAR
+   8. MODERN AÇILIŞ ANİMASYONLARI
    ========================================================================== */
 @keyframes modalFadeIn {
     from {
         opacity: 0;
-        transform: translate(-50%, -45%);
+        transform: translate(-50%, -46%);
     }
     to {
         opacity: 1;
