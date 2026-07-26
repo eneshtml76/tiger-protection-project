@@ -1,8 +1,10 @@
-/* Page General Layout */
+/* ==========================================================================
+   1. GENEL SAYFA DÜZENİ & ARKA PLAN
+   ========================================================================== */
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: #0b0b0c; /* Derin ve kaliteli antrasit-siyah tonu */
     margin: 0;
-    padding: 0 0 100px 0;    
+    padding: 0 0 140px 0;    
     display: flex;           
     flex-direction: column;  
     align-items: center;     
@@ -10,192 +12,227 @@ body {
     min-height: 100vh;       
     overflow-y: auto;        
     position: relative;      
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
-
-/* 1. HERO TITLE */
+/* ==========================================================================
+   2. TİPOGRAFİ & BAŞLIKLAR (HERO)
+   ========================================================================== */
 h1.hero {
     order: 1;                
-    font-size: 3rem;
-    margin: 20px 0 5px 0;   
+    font-size: 3.2rem;
+    font-weight: 900;
+    margin: 40px 0 10px 0;   
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: white;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, #ffffff 30%, #a5a5a8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
-/* 2. SLOGAN PARAGRAPH (Targeted specifically to the hero slogan) */
+/* Slogan Paragrafı */
 body > p {
     order: 2;                
-    color: yellow;
-    margin: 0 0 10px 0;
+    color: #ff9f1c; /* Gözü yormayan, premium kaplan turuncusu */
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 0 30px 0;
+    text-transform: uppercase;
 }
 
-/* 3. TIGER IMAGE */
+/* ==========================================================================
+   3. ANA GÖRSEL (HERO IMAGE)
+   ========================================================================== */
 img.hero-image {
     order: 3;                
-    max-width: 45%;          /* Scaled down slightly to avoid overlapping buttons */
+    max-width: 750px;          
+    width: 90%;
     height: auto;            
     display: block;          
     margin: 10px auto;       
-    border-radius: 12px;
+    border-radius: 20px; /* Modern, yumuşatılmış köşeler */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+                0 0 0 1px rgba(255, 255, 255, 0.05); /* İnce şık dış çizgi */
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-/* FIXED BOTTOM LEFT BUTTON (How we protect) */
-.hero-button {
-    background-color: rgba(212, 172, 63, 0.788);
-    color: #f3f0f0;
-    border: 2px solid #ffffff;
-    padding: 12px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
+img.hero-image:hover {
+    transform: scale(1.015);
+}
+
+/* ==========================================================================
+   4. SABİTLENMİŞ ALT BUTONLAR (ALT PANEL)
+   ========================================================================== */
+
+/* Ortak Buton Özellikleri */
+.hero-button, .nore-button, .nedo-button {
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 50px; /* Tam oval, modern hap tasarım */
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     position: fixed; 
-    bottom: 20px;            
-    left: 20px;             
+    bottom: 25px;            
     z-index: 10;
+}
+
+/* NASIL KORUYORUZ BUTONU (Sol Alt) */
+.hero-button {
+    background-color: #1c1c1e;
+    color: #ffffff;
+    border: 1px solid #3a3a3c;
+    left: 25px;             
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .hero-button:hover {
-    background-color: rgba(223, 122, 7, 0.8);
-    transform: translateY(-3px);
+    background-color: #2c2c2e;
+    border-color: #ff9f1c;
+    transform: translateY(-4px);
 }
 
-/* FIXED BOTTOM RIGHT BUTTON (Click to support) */
+/* DESTEK OL BUTONU (Sağ Alt - En Dikkat Çeken) */
 .nore-button {
-    background-color: rgba(48, 155, 57, 0.637);
-    color: rgb(255, 252, 252);
-    border: 2px solid #ffffff;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 12px 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: fixed; 
-    bottom: 20px;            
-    right: 20px;
-    z-index: 10;
+    background-color: #ff9f1c;
+    color: #000000; /* Yüksek okunurluk için siyah yazı */
+    border: none;
+    right: 25px;
+    box-shadow: 0 6px 24px rgba(255, 159, 28, 0.3);
 }
 
 .nore-button:hover {
-    background-color: rgba(35, 231, 9, 0.637);
-    transform: translateY(-3px);
+    background-color: #ffb703;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(255, 159, 28, 0.5);
 }
 
-/* FIXED BOTTOM CENTER BUTTON (Who we are) */
+/* BİZ KİMİZ BUTONU (Orta Alt) */
 .nedo-button {
-    position: fixed;         
-    bottom: 65px;            /* Increased slightly to prevent overlapping with signature */
     left: 50%;
     transform: translateX(-50%); 
-    background-color: #2d1cc7;
-    color: #f8f1f1;
-    border: 2px solid #fffdfb;
-    padding: 12px 30px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    z-index: 10;
+    background-color: #1c1c1e;
+    color: #ffffff;
+    border: 1px solid #3a3a3c;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .nedo-button:hover {
-    background-color: #ff6a00;
-    color: #ffffff;
+    background-color: #2c2c2e;
+    border-color: #ff9f1c;
+    transform: translateX(-50%) translateY(-4px); /* Merkez hizasını bozmadan yükselir */
 }
 
-/* BOTTOM AUTHOR SIGNATURE */
+/* ==========================================================================
+   5. YAZAR İMZASI (FOOTER SIGNATURE)
+   ========================================================================== */
 .signature {
     position: fixed;         
-    bottom: 20px;            /* Anchored to the very bottom center of the screen */
+    bottom: 90px; /* Butonların üzerine taşınarak çakışma önlendi */
     left: 50%;
     transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.6) !important; /* Forces standard signature color over global p rules */
-    font-size: 0.9rem;
-    font-weight: bold;
-    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.3) !important; 
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin: 0;
     z-index: 10;
 }
 
-/* --- POPUP INFORMATION PANELS LAYOUT --- */
+/* ==========================================================================
+   6. BİLGİ PENCERELERİ (POP-UP MODALS)
+   ========================================================================== */
 .about-section, .protect-section {
     display: none;            
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centers the modal panels on the screen */
-    width: 80%;
-    max-width: 500px;
-    background-color: #111111;
-    border-radius: 8px;
-    padding: 20px;
-    color: white;
-    z-index: 100;            /* Forces them to stay on top of everything */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    transform: translate(-50%, -50%); 
+    width: 90%;
+    max-width: 480px;
+    background-color: #121214;
+    border-radius: 16px;
+    padding: 35px;
+    color: #ffffff;
+    z-index: 100;            
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.05);
+    animation: modalFadeIn 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
-/* Fixes internal paragraph styling inside info boxes */
+/* Pop-up Başlıkları */
+.about-section h2, .protect-section h2 { 
+    color: #ff9f1c; 
+    margin-top: 0; 
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+/* Pop-up İçerik Yazıları */
 .about-section p, .protect-section p {
-    color: #e0e0e0;
+    color: #b3b3b3;
     font-size: 1rem;
     line-height: 1.6;
-    margin: 10px 0 0 0;
+    margin: 16px 0 0 0;
+    text-transform: none; /* Global p kuralının bunu bozmasını engeller */
 }
 
+/* JavaScript Sınıf Tetikleyicisi */
 .about-section.show, .protect-section.show {
     display: block;           
 }
 
-.about-section { border: 2px solid #2d1cc7; }
-.protect-section { border: 2px solid #d4ac3f; }
-.about-section h2, .protect-section h2 { color: #ff6a00; margin-top: 0; }
+/* İnce Renkli Çizgi Detayları */
+.about-section { border-top: 4px solid #ff9f1c; }
+.protect-section { border-top: 4px solid #ff9f1c; }
 
-/* DYNAMIC DONATION POPUP PANEL */
+/* ==========================================================================
+   7. DİNAMİK BAĞIŞ PANELİ (DONATION PANEL)
+   ========================================================================== */
 .donation-panel {
-    display: none;            /* Hidden by default on initial page load */
+    display: none;            
     position: fixed;
-    bottom: 75px;             /* Positioned directly above the .nore-button */
-    right: 20px;              
-    background-color: rgba(0, 0, 0, 0.9);
-    border: 2px solid rgba(48, 155, 57, 0.8);
-    border-radius: 8px;
+    bottom: 90px; /* Destek ol butonunun tam üstünde açılır */
+    right: 25px;              
+    background-color: #121214;
+    border: 1px solid rgba(255, 159, 28, 0.3);
+    border-radius: 100px; /* Kapsül tasarımı */
     padding: 8px 12px;
     align-items: center;
-    gap: 15px;                
+    gap: 12px;                
     z-index: 15;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    animation: modalFadeIn 0.3s ease forwards;
 }
 
-/* Class triggered by JavaScript to open the donation panel */
 .donation-panel.show {
     display: flex;            
 }
 
-/* Counter display text area */
 #donationDisplay {
     color: #ffffff;
-    font-size: 1.2rem;
-    font-weight: bold;
-    min-width: 45px;          /* Prevents visual shifting when layout updates */
+    font-size: 1.3rem;
+    font-weight: 800;
+    min-width: 55px;          
     text-align: center;
 }
 
-/* Plus and Minus round calculator buttons */
+/* Sayaç Yuvarlak Butonları */
 .calc-btn {
-    background-color: rgba(48, 155, 57, 0.637);
-    color: white;
-    border: 1px solid #ffffff;
-    width: 32px;
-    height: 32px;
+    background-color: #ff9f1c;
+    color: #000000;
+    border: none;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;       
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-weight: 800;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -204,6 +241,20 @@ img.hero-image {
 }
 
 .calc-btn:hover {
-    background-color: rgba(35, 231, 9, 0.8);
-    transform: scale(1.1);    
+    background-color: #ffb703;
+    transform: scale(1.08);    
+}
+
+/* ==========================================================================
+   8. ANİMASYONLAR
+   ========================================================================== */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
 }
